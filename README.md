@@ -13,7 +13,9 @@ Software for TOFHiR 2
 
 # Build packages
 ```
-cmake .
+mkdir build && cd build
+cmake ..
+make
 ```
 Python bindings can be specified directly if not found. Refer to cmake documentation for more https://cmake.org/:
 ```
