@@ -17,7 +17,7 @@ cmake .
 ```
 Python bindings can be specified directly if not found. Refer to cmake documentation for more https://cmake.org/:
 ```
-cmake . -DPYTHON_INCLUDE_DIR=/usr/inclue/python3.8 -DPYTHON_LIBRARY=/usr/lib/python3.8
+cmake . -DPYTHON_INCLUDE_DIR=/usr/inclue/python3.8 -DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.8.so
 ```
 
 to check the include and library path of your python:
