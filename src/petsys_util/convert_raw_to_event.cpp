@@ -12,6 +12,7 @@
 #include <TFile.h>
 #include <TNtuple.h>
 #include <TProfile.h>
+#include <iostream>
 
 using namespace PETSYS;
 

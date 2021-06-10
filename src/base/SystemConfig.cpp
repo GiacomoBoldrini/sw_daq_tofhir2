@@ -10,7 +10,8 @@
 #include <boost/algorithm/string/replace.hpp>
 
 extern "C" {
-#include <iniparser.h>
+// For ubuntu dists, header located under /usr/include/iniparser/ and not /usr/include/iniparser.h
+#include <iniparser/iniparser.h>
 }
 
 using namespace PETSYS;
@@ -47,7 +48,7 @@ SystemConfig *SystemConfig::fromFile(const char *configFileName, uint64_t mask)
 
 	config->hasTDCCalibration = false;
 	if((mask & LOAD_TDC_CALIBRATION) != 0) {
-		char *entry = iniparser_getstring(configFile, "main:tdc_calibration_table", NULL);
+		char *entry = (char*) iniparser_getstring(configFile, "main:tdc_calibration_table", NULL);
 		if(entry == NULL) {
 			fprintf(stderr, "ERROR: tdc_calibration_table not specified in section 'main' of '%s'\n", configFileName);
 			exit(1);
@@ -81,7 +82,7 @@ SystemConfig *SystemConfig::fromFile(const char *configFileName, uint64_t mask)
 
 	config->hasXYZ = false;
 	if((mask & LOAD_MAPPING) != 0) {
-		char *entry = iniparser_getstring(configFile, "main:channel_map", NULL);
+		char *entry = (char*) iniparser_getstring(configFile, "main:channel_map", NULL);
 		if(entry == NULL) {
 			fprintf(stderr, "ERROR: channel_map not specified in section 'main' of '%s'\n", configFileName);
 			exit(1);
@@ -90,7 +91,7 @@ SystemConfig *SystemConfig::fromFile(const char *configFileName, uint64_t mask)
 		loadChannelMap(config, fn);
 		config->hasXYZ = true;
 		
-		entry = iniparser_getstring(configFile, "main:trigger_map", NULL);
+		entry = (char*) iniparser_getstring(configFile, "main:trigger_map", NULL);
 		if(entry == NULL) {
 			fprintf(stderr, "ERROR: trigger_map not specified in section 'main' of '%s'\n", configFileName);
 			exit(1);
