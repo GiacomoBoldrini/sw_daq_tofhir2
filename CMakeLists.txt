@@ -94,9 +94,6 @@ target_link_libraries("convert_raw_to_raw" common)
 add_executable("convert_raw_to_group" "src/petsys_util/convert_raw_to_group.cpp" )
 target_link_libraries("convert_raw_to_group" common)
 
-add_executable("convert_raw_to_trigger" "src/petsys_util/convert_raw_to_trigger.cpp" )
-target_link_libraries("convert_raw_to_trigger" common)
-
 add_executable("convert_raw_to_event" "src/petsys_util/convert_raw_to_event.cpp" )
 target_link_libraries("convert_raw_to_event" common)
 
@@ -111,6 +108,9 @@ target_link_libraries("print_raw" common)
 
 add_executable("merge_raw" "src/petsys_util/merge_raw.cpp" )
 target_link_libraries("merge_raw" common)
+
+add_executable("analyze_pedestals.exe" "src/petsys_util/analyze_pedestals.cpp" )
+target_link_libraries("analyze_pedestals.exe" common)
 
 # add_executable("analyze_asic_quick_scan" "src/petsys_util/analyze_asic_quick_scan.cpp" )
 # target_link_libraries("analyze_asic_quick_scan" common)
